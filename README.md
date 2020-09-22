@@ -1,41 +1,42 @@
 # APS-Logica EBNF Linguagem
+OBS: README sem os <>. Ex: <DIGITO>
 
 ENBF Linguagem "PorExtenso++"
 
-<DIGITO> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+DIGITO ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 
-<CARACTER> ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z" | "@" | ... | "." | "#"
+CARACTER ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z" | "@" | ... | "." | "#"
 
-<INTEIRO> ::= <DIGITO>+
+INTEIRO ::= DIGITO+
 
-<FLOAT> ::= <DIGITO>+ "." <DIGITO>+
+FLOAT ::= DIGITO+ "." DIGITO+
 
-<NUMERO> ::= <INTEIRO> | <FLOAT>
+NUMERO ::= INTEIRO | FLOAT
 
-<STRING>  ::= <CARACTER>+
+STRING  ::= CARACTER+
 
-<BOOLEANO> ::= "TRUE" | "FALSE"
+BOOLEANO ::= "TRUE" | "FALSE"
 
-<OPS_SOMA> ::= "mais" | "menos"
+OPS_SOMA ::= "mais" | "menos"
 
-<OPS_MULT> ::=  "vezes" | "dividido"
+OPS_MULT ::=  "vezes" | "dividido"
 
-<OPS_COMPARAR> ::= "igual" | "diferente" | "menor" | "menorigual" | "maior" | "maiorigual"
+OPS_COMPARAR ::= "igual" | "diferente" | "menor" | "menorigual" | "maior" | "maiorigual"
 
-<VARIAVEL> ::= <CARACTER> (<DIGITO> | <CARACTER>)*
+VARIAVEL ::= CARACTER (DIGITO | CARACTER)*
 
-<COMPARACAO> ::= ((<VARIAVEL> | <NUMERO> | BOOLEANO) <OPS_COMPARAR> (<VARIAVEL> | <NUMERO> | <BOOLEANO>)) | <BOOLEANO>
+COMPARACAO ::= ((VARIAVEL | NUMERO | BOOLEANO) OPS_COMPARAR (VARIAVEL | NUMERO | BOOLEANO)) | BOOLEANO
 
-<EXPRESSAO> ::= ( <TERMO> (<OPS_SOMA> <EXPRESSAO>)+ ) | (<TERMO> | <COMPARACAO>)
+EXPRESSAO ::= ( TERMO (OPS_SOMA EXPRESSAO)+ ) | (TERMO | COMPARACAO)
 
-<TERMO> ::= (<EXPRESSAO_PARENTESES> (<OPS_MULT> <TERMO>)+ ) | <EXPRESSAO_PARENTESES> 
+TERMO ::= (EXPRESSAO_PARENTESES (OPS_MULT TERMO)+ ) | EXPRESSAO_PARENTESES 
 
-<EXPRESSAO_PARENTESES> ::= "(" <EXPRESSAO> ")" | (<NUMERO> | <STRING> | <VARIAVEL>)
+EXPRESSAO_PARENTESES ::= "(" EXPRESSAO ")" | (NUMERO | STRING | VARIAVEL)
 
 <COND> ::= <IF> | <WHILE>
 
-<IF> ::= "se-e-somente-se" <COMPARACAO> "{" (<EXPRESSAO> | <COND>) "}" | "se-e-somente-se" <COMPARACAO> "{" (<EXPRESSAO> | <COND>) "}" "casocontrario" "{" (<EXPRESSAO> | <COND>) "}"
+IF ::= "se-e-somente-se" COMPARACAO "{" (EXPRESSAO | COND) "}" | "se-e-somente-se" COMPARACAO "{" (EXPRESSAO | COND) "}" "casocontrario" "{" (EXPRESSAO | COND) "}"
 
-<WHILE> ::= "enquanto" <COMPARACAO> "{" (<EXPRESSAO> | <COND>) "}"
+WHILE ::= "enquanto" COMPARACAO "{" (EXPRESSAO | COND) "}"
 
-<PROGRAMA> ::= (<EXPRESSAO> | <COND>)*
+PROGRAMA ::= (EXPRESSAO | COND)*
