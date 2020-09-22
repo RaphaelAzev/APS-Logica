@@ -1,5 +1,5 @@
 # APS-Logica EBNF Linguagem
-OBS: README sem os <>. Ex: <DIGITO>
+OBS: README sem os <>, leia o txt
 
 ENBF Linguagem "PorExtenso++"
 
