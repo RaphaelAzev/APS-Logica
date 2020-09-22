@@ -33,7 +33,7 @@ TERMO ::= (EXPRESSAO_PARENTESES (OPS_MULT TERMO)+ ) | EXPRESSAO_PARENTESES
 
 EXPRESSAO_PARENTESES ::= "(" EXPRESSAO ")" | (NUMERO | STRING | VARIAVEL)
 
-<COND> ::= <IF> | <WHILE>
+COND ::= IF | WHILE
 
 IF ::= "se-e-somente-se" COMPARACAO "{" (EXPRESSAO | COND) "}" | "se-e-somente-se" COMPARACAO "{" (EXPRESSAO | COND) "}" "casocontrario" "{" (EXPRESSAO | COND) "}"
 
