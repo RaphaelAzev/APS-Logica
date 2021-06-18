@@ -1,0 +1,16 @@
+inteiro impressaoExponencial(inteiro x) {
+    se_e_somente_se((x igual 0) ou (x menor 0)) {
+        imprimir("Digite um numero positivo");
+    } casocontrario {
+        enquanto(x menor 1000) {
+            x recebe x vezes 2;
+            imprimir(x);
+        }
+    }
+}
+
+inteiro main() {
+    inteiro x;
+    x recebe ler();
+    impressaoExponencial(x);
+}
