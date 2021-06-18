@@ -92,6 +92,7 @@ int main() {
 ```
 
 Muito menos intuitivo para uma pessoa entender com facilidade.  
+O repositorio contem alguns outros arquivos testes funcionais que demonstram algumas das funcionalidades da linguagem  
   
 
 ## Dificuldades
