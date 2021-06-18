@@ -1,0 +1,11 @@
+inteiro multiplica(inteiro x, inteiro y) {
+    inteiro c recebe x vezes y;
+    retornar c;
+}
+
+inteiro main() {
+    inteiro x;
+    x recebe 5;
+    x recebe multiplica(x,5);
+    imprimir(x);
+}
