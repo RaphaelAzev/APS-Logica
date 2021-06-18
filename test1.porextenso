@@ -1,0 +1,9 @@
+inteiro main() {
+    booleano x;
+    booleano y;
+    x recebe verdadeiro;
+    y recebe falso;
+    imprimir(x);
+    imprimir(y);
+    imprimir(x e y);
+}

@@ -184,7 +184,12 @@ class AssignOp(Node):
 
 class PrintNode(Node):
     def Evaluate(self, symbtable):
-        print(self.children[0].Evaluate(symbtable)[0])
+        if(self.children[0].Evaluate(symbtable)[0] == True):
+            print("Verdadeiro")
+        elif(self.children[0].Evaluate(symbtable)[0] == False):
+            print("Falso")
+        else:
+            print(self.children[0].Evaluate(symbtable)[0])
 
 class ReadNode(Node):
     def Evaluate(self, symbtable):
@@ -384,6 +389,8 @@ class Tokenizer:
                     self.actual = Token("return", "return")
                 elif(text == "ler"):
                     self.actual = Token("readln", "readln")
+                elif(text == "booleano"):
+                    self.actual = Token("bool", "bool")
 
                 elif text not in Reserved:
                     self.actual = Token("identifier", text)
