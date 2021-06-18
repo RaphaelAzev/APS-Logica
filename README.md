@@ -1,7 +1,7 @@
 # USO
 
 > Para compilar programa em porextenso com o compilador porextenso.py, deve se rodar ele dessa forma:  
-> - python3 porextenso.py arquivo.porextenso
+> - python3 porextenso.py arquivo.porextenso  
 > OBS: O compilador so aceita arquivos do format .porextenso.
 
 # APS-Logica EBNF Linguagem
