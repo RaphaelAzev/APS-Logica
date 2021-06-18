@@ -60,7 +60,7 @@ precisa de abertura de blocos), ela produz códigos mais simples de explicar, co
 O codigo em porextenso a seguir declara uma variável do tipo inteiro x e recebe um valor lido pelo input do usuário, após isso, se e somente se o valor de x for maior que 0  
 irá se imprimir o valor de x no terminal, caso contrário enquanto x for menor que 0, somamos 1 ao seu valor e imprimimos. Veja o código abaixo:  
 
-```js
+```
 inteiro main() {
     inteiro x;
     x recebe ler();
