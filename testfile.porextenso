@@ -1,0 +1,13 @@
+
+inteiro main() {
+    inteiro x;
+    x recebe ler();
+    se_e_somente_se(x maior 0) {
+        imprimir(x);
+    } casocontrario {
+        enquanto(x menor 0) {
+            x recebe x mais 1;
+            imprimir(x);
+        }
+    }
+}

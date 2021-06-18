@@ -1,46 +1,48 @@
-ENBF Linguagem "PorExtenso++"
 
-<DIGITO> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<FUNCTION> = <TYPE>, <IDENTIFIER>, "(", [{<PARAM>}], ")", <BLOCK> ;
 
-<CARACTER> ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z" | "@" | ... | "." | "#"
+<PARAM> = <TYPE>, <IDENTIFIER> ;
 
-<INTEIRO> ::= <DIGITO>+
+<RETURN> = "retornar", (<EXPRESSION> | <OREXPR>), ";" ;
 
-<FLOAT> ::= <DIGITO>+ "." <DIGITO>+
+<BLOCK> = "{", { <COMMAND> }, "}";
 
-<NUMERO> ::= <INTEIRO> | <FLOAT>
+<COMMAND> = ( λ | <VARIABLE_DECLARATION> | <ASSIGNMENT> | <PRINT> | <IF> | <WHILE> | <BLOCK> | <FUNCTION_CALL>), ";" ;
 
-<STRING>  ::= <CARACTER>+
+<FUNCTION_CALL> = <TYPE>, <IDENTIFIER>, "(", (<EXPRESSION> | <OREXPR>), {",", (<EXPRESSION> | <OREXPR>)}, ")", ";"
+<VARIABLE_DECLARATION> = ( <TYPE>, " ", <IDENTIFIER>, "recebe, <EXPRESSION> ) |
+                       ( <TYPE>, " ", <IDENTIFIER> );
 
-<BOOLEANO> ::= "TRUE" | "FALSE"
+<ASSIGNMENT> = <IDENTIFIER>, "recebe, <EXPRESSION> ;
 
-<OPS_SOMA> ::= "mais" | "menos"
+<PRINT> = "imprimir", "(", <EXPRESSION>, ")" ;
 
-<OPS_MULT> ::=  "vezes" | "dividido"
+<READ> = "ler", "(", <INT>, ")" ;
 
-<OPS_COMPARAR> ::= "igual" | "diferente" | "menor" | "menorigual" | "maior" | "maiorigual"
+<WHILE> = "enquanto", "(", <OREXPR>, ")", <COMMAND>;
 
-<VARIAVEL> ::= <CARACTER> (<DIGITO> | <CARACTER>)*
+<IF> = "se_e_somente_se", "(", <OREXPR>, ")", <COMMAND> |
+     "se_e_somente_se", "(", <OREXPR>, ")", <COMMAND>, "casocontrario", <COMMAND>;
 
-<COMPARACAO> ::= ((<VARIAVEL> | <NUMERO> | BOOLEANO) <OPS_COMPARAR> (<VARIAVEL> | <NUMERO> | <BOOLEANO>)) | <BOOLEANO>
+<OREXPR> = <ANDEXPR>, {"ouuu", <ANDEXPR>};
+<ANDEXPR> = <EQEXPR>, {"eeee", <EQEXPR>};
+<EQEXPR> = <RELEXPR>, {"igual", <RELEXPR>};
+<RELEXPR> = <EXPRESSION>, {("maior" | "menor"), <EXPRESSION>};
+<EXPRESSION> = <TERM>, { ("mais" | "menos"), <TERM> } ;
+<TERM> = <FACTOR>, { ("vezes" | "dividido"), <FACTOR> } ;
+<FACTOR> = (("mais" | "menos" | "negar"), <FACTOR>) | <NUMBER> | <BOOL_VALUE> | <STRING_VALUE> | "(", <EXPRESSION>, ")" | <IDENTIFIER> ;
 
-<EXPRESSAO> ::= ( <TERMO> (<OPS_SOMA> <EXPRESSAO>)+ ) | (<TERMO> | <COMPARACAO>)
+<TYPE> = <INT> | <BOOL> | <STRING>;
+<INT> = "inteiro";
+<BOOL> = "booleano";
+<STRING> = "string";
 
-<TERMO> ::= (<EXPRESSAO_PARENTESES> (<OPS_MULT> <TERMO>)+ ) | <EXPRESSAO_PARENTESES> 
-
-<EXPRESSAO_PARENTESES> ::= "(" <EXPRESSAO> ")" | (<NUMERO> | <STRING> | <VARIAVEL>)
-
-<COND> ::= <IF> | <WHILE>
-
-<IF> ::= "se-e-somente-se" <COMPARACAO> "{" (<EXPRESSAO> | <COND>) "}" | "se-e-somente-se" <COMPARACAO> "{" (<EXPRESSAO> | <COND>) "}" "casocontrario" "{" (<EXPRESSAO> | <COND>) "}"
-
-<WHILE> ::= "enquanto" <COMPARACAO> "{" (<EXPRESSAO> | <COND>) "}"
-
-<PROGRAMA> ::= (<EXPRESSAO> | <COND>)*
-
-
-
-
+<IDENTIFIER> = <LETTER>, { <LETTER> | "_"} ;
+<NUMBER> = <DIGIT>, { <DIGIT> } ;
+<BOOL_VALUE> = "verdadeiro" | "falso" ;
+<STRING_VALUE> = '"', ( <LETTER> | <NUMBER> ), {( <LETTER> | <NUMBER> )}, '"';
+<LETTER> = a | ... | z | A | ... | Z;
+<DIGIT> = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ;
 
 
 
