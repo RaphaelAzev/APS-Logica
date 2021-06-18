@@ -50,7 +50,7 @@
 
 # Linguagem porextenso
 <p>Para o projeto, foi se desenvolvido uma linguagem que tem seus operadores e operações escritas por extenso. 
-Com uma estrutura baseada em C++, ela facilita a programadores a familiares com linguagens semelhantes a aprenderem essa nova linguagens mantendo muitas das mesmas construções  
+Com uma estrutura baseada em C++, ela facilita programadores familiares com linguagens semelhantes a aprenderem essa nova linguagens mantendo muitas das mesmas construções  
 existentes em C++, como declarção de funções e um main que executa tudo, tipagem de variáveis e definição de blocos com chaves ( { } ).</p>  
 <p>A linguagem por extenso tem como objetivo facilitar o entendimento de códigos para pessoas que não são versadas nas nuâncias de programação, visando deixar mais aparente  
 o que está acontecendo nas linhas de código. Enquanto ela ainda é rigida em sua formatação de blocos de códigos (precisa ter main declarado, precisa de ; no final de linhas,  
