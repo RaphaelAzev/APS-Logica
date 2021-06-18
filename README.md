@@ -5,50 +5,48 @@
 > OBS: O compilador so aceita arquivos do format .porextenso.
 
 # APS-Logica EBNF Linguagem
-> FUNCTION = TYPE, IDENTIFIER, "(", [{PARAM}], ")", BLOCK ;
+> FUNCTION = TYPE, IDENTIFIER, "(", [{PARAM}], ")", BLOCK ;  
 > 
-> PARAM = TYPE, IDENTIFIER ;
+> PARAM = TYPE, IDENTIFIER ;  
 > 
-> RETURN = "retornar", (EXPRESSION | OREXPR), ";" ;
+> RETURN = "retornar", (EXPRESSION | OREXPR), ";" ;  
 > 
-> BLOCK = "{", { COMMAND }, "}";
+> BLOCK = "{", { COMMAND }, "}";  
 > 
-> COMMAND = ( λ | VARIABLE_DECLARATION | ASSIGNMENT | PRINT | IF | WHILE | BLOCK | FUNCTION_CALL), ";" ;
+> COMMAND = ( λ | VARIABLE_DECLARATION | ASSIGNMENT | PRINT | IF | WHILE | BLOCK | FUNCTION_CALL), ";" ;  
 > 
-> FUNCTION_CALL = TYPE, IDENTIFIER, "(", (EXPRESSION | OREXPR), {",", (EXPRESSION | OREXPR)}, ")", ";"
-> VARIABLE_DECLARATION = ( TYPE, " ", IDENTIFIER, "recebe, EXPRESSION ) |
->                        ( TYPE, " ", IDENTIFIER );
+> FUNCTION_CALL = TYPE, IDENTIFIER, "(", (EXPRESSION | OREXPR), {",", (EXPRESSION | OREXPR)}, ")", ";"  
+> VARIABLE_DECLARATION = ( TYPE, " ", IDENTIFIER, "recebe, EXPRESSION ) | ( TYPE, " ", IDENTIFIER );  
+>  
+> ASSIGNMENT = IDENTIFIER, "recebe, EXPRESSION ;  
+>  
+> PRINT = "imprimir", "(", EXPRESSION, ")" ;  
+>  
+> READ = "ler", "(", INT, ")" ;  
+>  
+> WHILE = "enquanto", "(", OREXPR, ")", COMMAND;  
+>  
+> IF = "se_e_somente_se", "(", OREXPR, ")", COMMAND | "se_e_somente_se", "(", OREXPR, ")", COMMAND, "casocontrario", COMMAND;  
+>   
+> OREXPR = ANDEXPR, {"ou", ANDEXPR};  
+> ANDEXPR = EQEXPR, {"e", EQEXPR};  
+> EQEXPR = RELEXPR, {"igual", RELEXPR};  
+> RELEXPR = EXPRESSION, {("maior" | "menor"), EXPRESSION};  
+> EXPRESSION = TERM, { ("mais" | "menos"), TERM } ;  
+> TERM = FACTOR, { ("vezes" | "dividido"), FACTOR } ;  
+> FACTOR = (("mais" | "menos" | "negar"), FACTOR) | NUMBER | BOOL_VALUE | STRING_VALUE | "(", EXPRESSION, ")" | IDENTIFIER ;  
+>   
+> TYPE = INT | BOOL | STRING;  
+> INT = "inteiro";  
+> BOOL = "booleano";  
+> STRING = "string";  
 > 
-> ASSIGNMENT = IDENTIFIER, "recebe, EXPRESSION ;
-> 
-> PRINT = "imprimir", "(", EXPRESSION, ")" ;
-> 
-> READ = "ler", "(", INT, ")" ;
-> 
-> WHILE = "enquanto", "(", OREXPR, ")", COMMAND;
-> 
-> IF = "se_e_somente_se", "(", OREXPR, ")", COMMAND |
->      "se_e_somente_se", "(", OREXPR, ")", COMMAND, "casocontrario", COMMAND;
-> 
-> OREXPR = ANDEXPR, {"ou", ANDEXPR};
-> ANDEXPR = EQEXPR, {"e", EQEXPR};
-> EQEXPR = RELEXPR, {"igual", RELEXPR};
-> RELEXPR = EXPRESSION, {("maior" | "menor"), EXPRESSION};
-> EXPRESSION = TERM, { ("mais" | "menos"), TERM } ;
-> TERM = FACTOR, { ("vezes" | "dividido"), FACTOR } ;
-> FACTOR = (("mais" | "menos" | "negar"), FACTOR) | NUMBER | BOOL_VALUE | STRING_VALUE | "(", EXPRESSION, ")" | IDENTIFIER ;
-> 
-> TYPE = INT | BOOL | STRING;
-> INT = "inteiro";
-> BOOL = "booleano";
-> STRING = "string";
-> 
-> IDENTIFIER = LETTER, { LETTER | "_"} ;
-> NUMBER = DIGIT, { DIGIT } ;
-> BOOL_VALUE = "verdadeiro" | "falso" ;
-> STRING_VALUE = '"', ( LETTER | NUMBER ), {( LETTER | NUMBER )}, '"';
-> LETTER = a | ... | z | A | ... | Z;
-> DIGIT = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ;
+> IDENTIFIER = LETTER, { LETTER | _ } ;  
+> NUMBER = DIGIT, { DIGIT } ;  
+> BOOL_VALUE = "verdadeiro" | "falso" ;  
+> STRING_VALUE = '"', ( LETTER | NUMBER ), {( LETTER | NUMBER )}, '"';  
+> LETTER = a | ... | z | A | ... | Z;  
+> DIGIT = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ;  
 
 # Linguagem porextenso
 <p>Para o projeto, foi se desenvolvido uma linguagem que tem seus operadores e operações escritas por extenso. 
