@@ -126,7 +126,7 @@ operações, como resto de divisão (%), potência (**), etc.</p>
 > - (==) --> igual | x igual y  
 > - (!) --> negar | negar x  
 > - std::cout --> imprimir() | imprimir(x)  
-> - std::cin --> ler() | ler(x)  
+> - std::cin --> ler() | x recebe ler()  
 > - if / else --> se_e_somente_se | se_e_somente_se(x igual verdadeiro) { } casocontrario {}  
 > - while --> enquanto | enquanto(x maior 0)
 > - int --> inteiro | inteiro x = 5;
