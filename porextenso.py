@@ -347,9 +347,9 @@ class Tokenizer:
                     self.actual = Token(valor = ">", typetoken = get_type(">"))
                 elif(text == "menor"):
                     self.actual = Token(valor = "<", typetoken = get_type("<"))
-                elif(text == "eeee"):
+                elif(text == "e"):
                     self.actual = Token(valor = "&&", typetoken = get_type("&&"))
-                elif(text == "ouuu"):
+                elif(text == "ou"):
                     self.actual = Token(valor = "||", typetoken = get_type("||"))
                 elif(text == "vezes"):
                     self.actual = Token(valor = "*", typetoken = get_type("*"))
@@ -361,8 +361,7 @@ class Tokenizer:
                     self.actual = Token(valor = "=", typetoken = get_type("="))
                 elif(text == "negar"):
                     self.actual = Token(valor = "&&", typetoken = get_type("&&"))
-                elif(text == "ouuu"):
-                    self.actual = Token(valor = "-", typetoken = get_type("-"))
+
 
                 # Palavras reservadas
                 elif(text == "imprimir"):
